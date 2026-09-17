@@ -3,7 +3,6 @@ from datetime import datetime,timezone
 from app.enums import Role,Status,Priority
 
 class Account(SQLModel,table=True):
-    __table_args__={"sqlite_autoincrement":True}
     id:int|None=Field(default=None,primary_key=True)
     username:str=Field(max_length=30,unique=True,index=True)
     email:str=Field(unique=True,index=True)
@@ -12,7 +11,6 @@ class Account(SQLModel,table=True):
     is_active:bool=True
 
 class TaskItem(SQLModel,table=True):
-    __table_args__={"sqlite_autoincrement":True}
     id:int|None=Field(default=None,primary_key=True)
     title:str=Field(max_length=120)
     description:str|None=None
